@@ -4,29 +4,42 @@ Query Uri Encoder & Decoder with provide query parameters
 A library that builds a URL, including its path, query parameters. And support with decode with specific type
 
 # Installation
-
-### UUIDv4 manager
 ```typescript
-new IdManager().uuidManager()
+npm i query-uri-ts
 ```
-### ObjectId Manager
+
+# Usage
+## Encoder
 ```typescript
-new IdManager().objectIdManager()
+QueryUri.encoder<T>(path: string, queryParams: T): string
 ```
-## Usage
+### Example
 ```typescript
-import {createServer,Factory,Model,Serializer} from 'miragejs'
+import { QueryUri } from 'query-uri-ts'
 
-import IdManager from 'miragejs-idmanager'
-
-export function MockServer({environment = 'development'}){
-    return createServer({
-        environment,
-        identityManagers: {
-            todo: new IdManager().uuidManager(),
-            user: new IdManager().objectIdManager(),
-        } as any,
-        ...
-    })
+type UserFilterType = {
+    gender: string,
+    friends: Array<string>
 }
+const queryParams = { gender: 'female', friends: ['Jeff', 'Jack', 'Mary']} as UserFilterType
+
+const encodeQueryUri = QueryUri.encoder('https://www.npmjs.com/package/query-uri-ts',queryParams)
 ```
+## Decoder
+```typescript
+QueryUri.decoder<T>(path: string): T
+```
+### Example
+```typescript
+import { QueryUri } from 'query-uri-ts'
+
+type UserFilterType = {
+    gender: string,
+    friends: Array<string>
+}
+
+const queryParams = QueryUri.decoder<UserFilterType>('https://www.npmjs.com/package/query-uri-ts?gender=female&friends=Jeff,Jack,Mary')
+```
+
+### Note: 
+Query Params can includes none nested field and array.

@@ -10,7 +10,7 @@ export class QueryUri{
           }
           if(Object.prototype.toString.call(requestBody[key]) === '[object Array]')
           {
-            originalQueryUriComponent+=`${key}=`
+            originalQueryUriComponent+=`${key as string}=`
             const arr = Object.values(requestBody[key]) 
             arr.forEach((a,i)=>{
               if(i !== 0)
@@ -23,7 +23,7 @@ export class QueryUri{
           }
           else
           {
-            originalQueryUriComponent+=`${key}=${requestBody[key]}`
+            originalQueryUriComponent+=`${key as string}=${requestBody[key]}`
           }
         })
         const encodeQueryUri = `${baseUri}?${encodeURI(originalQueryUriComponent)}`
