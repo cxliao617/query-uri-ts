@@ -11,11 +11,11 @@ npm i query-uri-ts
 # Usage
 ## Encoder
 ```typescript
-QueryUri.encoder<T>(path: string, queryParams: T): string
+QueryUriEncoder<T>(path: string, queryParams: T): string
 ```
 ### Example
 ```typescript
-import { QueryUri } from 'query-uri-ts'
+import { QueryUriEncoder } from 'query-uri-ts'
 
 type UserFilterType = {
     gender: string,
@@ -23,22 +23,22 @@ type UserFilterType = {
 }
 const queryParams = { gender: 'female', friends: ['Jeff', 'Jack', 'Mary']} as UserFilterType
 
-const encodeQueryUri = QueryUri.encoder('https://www.npmjs.com/package/query-uri-ts',queryParams)
+const encodeQueryUri = QueryUriEncoder('https://www.npmjs.com/package/query-uri-ts',queryParams)
 ```
 ## Decoder
 ```typescript
-QueryUri.decoder<T>(path: string): T
+QueryUriDecoder<T>(path: string): T
 ```
 ### Example
 ```typescript
-import { QueryUri } from 'query-uri-ts'
+import { QueryUriDecoder } from 'query-uri-ts'
 
 type UserFilterType = {
     gender: string,
     friends: Array<string>
 }
 
-const queryParams = QueryUri.decoder<UserFilterType>('https://www.npmjs.com/package/query-uri-ts?gender=female&friends=Jeff,Jack,Mary')
+const queryParams = QueryUriDecoder<UserFilterType>('https://www.npmjs.com/package/query-uri-ts?gender=female&friends=Jeff,Jack,Mary')
 ```
 
 ### Note: 
