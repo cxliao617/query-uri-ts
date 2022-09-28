@@ -1,6 +1,6 @@
 {
   "name": "query-uri-ts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Query Uri Encoder & Decoder with provide query parameters",
   "main": "dist/QueryUri",
   "types": "dist/QueryUri",
