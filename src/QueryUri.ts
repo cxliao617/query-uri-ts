@@ -1,4 +1,5 @@
 export class QueryUri{
+  constructor(){}
     encoder<T> (baseUri: string, requestBody: T): string {
         let originalQueryUriComponent = ''
         type K = Array<keyof T>
