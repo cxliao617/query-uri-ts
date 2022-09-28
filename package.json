@@ -1,0 +1,39 @@
+{
+  "name": "query-uri-ts",
+  "version": "1.0.3",
+  "description": "Query Uri Encoder & Decoder with provide query parameters",
+  "main": "dist/QueryUri",
+  "types": "dist/QueryUri",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cxliao617/query-uri-ts.git"
+  },
+  "keywords": [
+    "url",
+    "uri",
+    "nodejs",
+    "typescript",
+    "ts",
+    "query",
+    "string",
+    "path",
+    "querystring",
+    "type",
+    "params",
+    "parameters"
+  ],
+  "author": "cxliao617",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.6.4",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {}
+}
